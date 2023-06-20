@@ -1,0 +1,128 @@
+\documentclass[12pt,a4paper]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage[printonlyused,withpage]{acronym}
+\usepackage{titlesec}
+\usepackage{amsmath}                          % Mathematische Formeln
+\usepackage{amsfonts}                         % Mathematische Zeichensätze
+\usepackage{amssymb}                          % Mathematische Symbole
+\usepackage[scaled]{helvet}                   % Schrift Helvetia laden
+\usepackage{times}
+\titleformat{\section}
+  {\normalfont\normalsize\bfseries\sffamily}{\thesection.}{1em}{}
+
+% Custom chapter title format
+\titleformat{\chapter}
+  {\normalfont\Huge\bfseries\sffamily}{\thechapter.}{20pt}{\Huge}
+
+\usepackage[main=ngerman, english]{babel}              % Deutsche Sprachunterstützung
+\usepackage[autostyle=true,german=quotes]{csquotes}    % Deutsche Anführungszeichen
+\usepackage[pagebackref=false,german]{hyperref}        % Hyperlinks
+\newcommand{\hsmasortlocale}{de_DE}                    % Sortierung der Literatur
+\usepackage[backend=biber,
+  isbn=false,                     % ISBN nicht anzeigen, gleiches geht mit nahezu allen anderen Feldern
+  sortlocale=\hsmasortlocale,     % Sortierung der Einträge für Deutsch
+                                  %      de_DE: für Deutsch
+                                  %      en_US: für Englisch
+  autocite=inline,                % regelt Aussehen für \autocite
+                                  %      inline: Zitat in Klammern (\parancite)
+                                  %      footnote: Zitat in Fußnoten (\footcite)
+                                  %      plain: Zitat direkt ohne Klammern (\cite)
+  style=ieee,         		        % Legt den Stil für die Zitate fest
+                                  %      ieee: Zitate als Zahlen [1]
+                                  %      alphabetic: Zitate als Kürzel und Jahr [Ein05]
+                                  %      authoryear: Zitate Author und Jahr [Einstein (1905)]
+  hyperref=true,                  % Hyperlinks für Zitate
+]{biblatex}                       % Literaturverwaltung mit BibLaTeX
+
+% Literatur-Datenbank
+\addbibresource{literatur.bib}   % BibLaTeX-Datei mit Literaturquellen einbinden
+
+% Tragen Sie hier Ihre Daten ein
+\newcommand{\titel}{Titel des Berichts}
+\newcommand{\untertitel}{Untertitel}
+\newcommand{\ihrname}{Max Mustermann}
+\newcommand{\matrikelnr}{1234567}
+\newcommand{\studiengang}{Informatik Bachelor (IB)}
+\newcommand{\unternehmen}{Schäferschwein AG}
+\newcommand{\fertigstellung}{18.10.2023}
+\newcommand{\zeitraum}{1.3.2023--30.6.2023}
+\newcommand{\ort}{Mannheim}
+%
+% Set the title, author, and date
+\title{\sffamily\vspace{-60mm}\fontsize{24pt}{10pt}\selectfont\textbf{Praxissemesterbericht: \\
+        \vspace{4mm}
+        \titel{}}\\[5mm]
+        \LARGE{\untertitel{}}\\[40mm]
+        \normalsize{Vorgelegt von: \ihrname{}} \\
+        Matrikelnummer: \matrikelnr{}\\
+        Studiengang: \studiengang{}\\[30mm]
+        \normalsize{Hochschule Mannheim\\
+        Fakultät für Informatik}\\[30mm]
+        \normalsize{Unternehmen: \unternehmen{}\\
+        Ort: Ort des Unternehmens}\\[30mm]
+        \normalsize{Datum der Fertigstellung: \fertigstellung{}}\\
+        Praktikumszeitraum: \zeitraum{}}
+\date{}
+\author{}
+
+% The company's approval
+\newpage
+\begin{document}
+\maketitle
+
+\thispagestyle{empty}
+\newpage
+\thispagestyle{empty}
+\vspace*{\fill}
+\noindent
+\textbf{Sichtvermerk der Firma:}\\[20mm]
+\noindent
+Firmenstempel und Unterschrift der betreuenden Person(en)
+\vspace*{\fill}
+\newpage
+
+% The table of contents
+\tableofcontents
+\newpage
+
+% The company background and goal
+\chapter{Firmenumfeld und Zielsetzung der Arbeit}
+Ihre Beschreibung hier.
+
+% The weekly reports
+\chapter{Wochenberichte}
+Ihre Wochenberichte hier.
+
+% The project report
+\chapter{Projektbericht}
+\section{Einleitung}
+Ihre Einleitung hier.
+\section{Grundlagen}
+Die Grundlagen hier.
+\section{Hauptteil}
+Der Hauptteil hier. \ac{IPoAC}.
+
+Literaturzitat \autocite{Kornmeier2011}
+\section{Lösung oder Fazit}
+Ihre Lösung oder Fazit hier.
+
+% The list of abbreviations and attachments
+\chapter*{Abkürzungsverzeichnis}
+Ihr Abkürzungsverzeichnis hier.
+\begin{acronym}[]
+ \acro{IPoAC}{IP over Avian Carriers}
+\end{acronym}
+
+% Literaturverzeichnis
+\newpage
+\begin{flushleft}
+\let\clearpage\relax % Fix für leere Seiten (issue #25)
+\printbibliography
+\end{flushleft}
+
+\chapter*{Anhänge}
+Ihre Anhänge hier.
+\end{document}

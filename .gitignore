@@ -1,0 +1,11 @@
+*.bbl
+*.bcf
+*.blg
+*.log
+*.out
+*.run.xml
+*.toc
+*.aux
+praxissemesterbericht.pdf
+
+
